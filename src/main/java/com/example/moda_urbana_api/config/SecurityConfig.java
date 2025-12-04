@@ -44,7 +44,7 @@ public class SecurityConfig {
                         // 🔓 GET de productos público (con o sin token)
                         .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
 
-                        // 🔐 todo lo demás requiere estar autenticado (y, si usas @PreAuthorize, rol)
+                        // 🔐 todo lo demás requiere estar autenticado
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
@@ -70,6 +70,10 @@ public class SecurityConfig {
             AuthenticationConfiguration configuration
     ) throws Exception {
         return configuration.getAuthenticationManager();
-    
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
