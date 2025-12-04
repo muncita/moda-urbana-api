@@ -44,6 +44,12 @@ public class SecurityConfig {
                         // 🔓 GET de productos público (con o sin token)
                         .requestMatchers(HttpMethod.GET, "/api/products/**").permitAll()
 
+                        .requestMatchers(
+                            "/v3/api-docs/**",
+                            "/swagger-ui.html",
+                            "/swagger-ui/**"
+                        ).permitAll()
+                        
                         // 🔐 todo lo demás requiere estar autenticado
                         .anyRequest().authenticated()
                 )
