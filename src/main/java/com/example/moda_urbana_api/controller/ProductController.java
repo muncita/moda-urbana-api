@@ -25,29 +25,16 @@ public class ProductController {
         return productService.findById(id);
     }
 
-<<<<<<< HEAD
-    // SOLO si quieres, puedes proteger estos con rol admin:
-    // @PreAuthorize("hasRole('ADMIN')")
-=======
->>>>>>> 7b955640b304eee1cce8237156ecc9179215078d
     @PostMapping
     public Product create(@RequestBody Product product) {
         return productService.create(product);
     }
 
-<<<<<<< HEAD
-    // @PreAuthorize("hasRole('ADMIN')")
-=======
->>>>>>> 7b955640b304eee1cce8237156ecc9179215078d
     @PutMapping("/{id}")
     public Product update(@PathVariable Long id, @RequestBody Product product) {
         return productService.update(id, product);
     }
 
-<<<<<<< HEAD
-    // @PreAuthorize("hasRole('ADMIN')")
-=======
->>>>>>> 7b955640b304eee1cce8237156ecc9179215078d
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         productService.delete(id);
