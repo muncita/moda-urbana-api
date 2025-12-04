@@ -16,16 +16,21 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(nullable = false)
+    private String name;            // Nombre del producto
 
     @Column(length = 1000)
-    private String description;
+    private String description;     // Descripción del producto
 
-    private Integer price;
+    @Column(nullable = false)
+    private Integer price;          // Precio en CLP
 
-    private String category;
+    @Column(nullable = false)
+    private String category;        // Categoría (ej: "Camisetas", "Pantalones")
 
-    private String imageUrl;
+    private String imageUrl;        // URL de la imagen
 
-    private Boolean active = true;
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean active = true;  // Producto activo o no
 }
