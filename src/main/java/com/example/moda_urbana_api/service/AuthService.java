@@ -8,6 +8,7 @@ import com.example.moda_urbana_api.repository.UserRepository;
 import com.example.moda_urbana_api.security.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -89,4 +90,8 @@ public class AuthService {
                 .roles(roles)
                 .build();
     }
+
+    public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
 }

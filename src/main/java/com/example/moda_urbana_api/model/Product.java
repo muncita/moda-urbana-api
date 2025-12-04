@@ -20,17 +20,17 @@ public class Product {
     private String name;            // Nombre del producto
 
     @Column(length = 1000)
-    private String description;     // Descripción
+    private String description;     // Descripción del producto
 
     @Column(nullable = false)
-    private Double price;           // Precio (double para simplificar)
+    private Integer price;          // Precio en CLP
 
     @Column(nullable = false)
     private String category;        // Categoría (ej: "Camisetas", "Pantalones")
 
-    private String imageUrl;        // URL imagen
+    private String imageUrl;        // URL de la imagen
 
-    @Builder.Default
     @Column(nullable = false)
-    private Boolean active = true;  // Si el producto está activo
+    @Builder.Default
+    private Boolean active = true;  // Producto activo o no
 }
